@@ -198,7 +198,8 @@ Using oracle cloud we have created an instance(VM) where we can connect through 
 ![](https://github.com/ULUGBEK12194914/OSlab/blob/main/terminal_screenshots/Screenshot%202023-06-06%20at%200.17.01.png)
 
 We have needed Putty program to generate a ssh key for our instance
-![]()
+![](https://github.com/ULUGBEK12194914/OSlab/blob/main/terminal_screenshots/Screenshot%202023-06-06%20at%200.14.29.png)
 
 Then using Wincsp we can work with instance through terminal
-![]()
+![](https://github.com/ULUGBEK12194914/OSlab/blob/main/terminal_screenshots/Screenshot%202023-06-06%20at%200.14.51.png)
+![](https://github.com/ULUGBEK12194914/OSlab/blob/main/terminal_screenshots/Screenshot%202023-06-06%20at%200.15.41.png)
