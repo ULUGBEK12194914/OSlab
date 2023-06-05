@@ -78,7 +78,7 @@ sudo apt-get update
   184  cd ../Documents
   185  cp thesis_chapter1.odf thesis_chapter2.odf Thesis ProjectX
   ```
-![]()
+![](https://github.com/ULUGBEK12194914/OSlab/blob/main/terminal_screenshots/Screenshot%202023-06-05%20at%2023.44.35.png)
 
 # WEEK 6
 ### Redirecting Output to a File or Program
@@ -145,7 +145,7 @@ parallels@ubuntu-linux-22-04-desktop:~$ ls > /tmp/saved-output | less
 [2]+  Stopped                 ls --color=auto > /tmp/saved-output | less
 parallels@ubuntu-linux-22-04-desktop:~$ ls -l | tee /tmp/saved-output | less
 ```
-![]()
+![](https://github.com/ULUGBEK12194914/OSlab/blob/main/terminal_screenshots/Screenshot%202023-06-06%20at%200.08.57.png)
 ```
 
 [3]+  Stopped                 ls --color=auto -l | tee /tmp/saved-output | less
@@ -192,6 +192,7 @@ drwx------ 2 gdm       gdm        4096 Jun  5 03:09 tracker-extract-3-files.129
 drwxr-xr-x 2 root      root       4096 Jun  5 16:54 ubuntu-advantage
 parallels@ubuntu-linux-22-04-desktop:~$ 
 ```
+![](https://github.com/ULUGBEK12194914/OSlab/blob/main/terminal_screenshots/Screenshot%202023-06-06%20at%200.08.22.png)
 # WEEK 7
 ### Creating a new Virtual Machine (VM)
 Using oracle cloud we have created an instance(VM) where we can connect through WinCSP and work with it
@@ -203,3 +204,158 @@ We have needed Putty program to generate a ssh key for our instance
 Then using Wincsp we can work with instance through terminal
 ![](https://github.com/ULUGBEK12194914/OSlab/blob/main/terminal_screenshots/Screenshot%202023-06-06%20at%200.14.51.png)
 ![](https://github.com/ULUGBEK12194914/OSlab/blob/main/terminal_screenshots/Screenshot%202023-06-06%20at%200.15.41.png)
+### BASH DATE_PURSE.SH
+```
+date_purse.sh bash file created to show 
+Current Date 
+Current Time
+---------------------------------------------------------------------
+ubuntu@instance-20230405-1846:~$ nano date_parse.sh
+ubuntu@instance-20230405-1846:~$ bash date_parse.sh
+Wed May 24 13:28:55 UTC 2023
+Current Date is: 24-05-2023
+Current Time is: 13:28:55
+```
+# WEEK 13
+### Analyzing and Storing Logs
+### Archiving and Copying Files
+### Accessing Linux File Systems
+
+```
+ubuntu@instance-20230605-1446:~/oslab$ nano file1
+ubuntu@instance-20230605-1446:~/oslab$ rm -r file1.pdf file2.pdf file3.pdf
+ubuntu@instance-20230605-1446:~/oslab$ ls
+date_parse.sh  file1
+ubuntu@instance-20230605-1446:~/oslab$ touch file2 file3
+ubuntu@instance-20230605-1446:~/oslab$ tar cf archive.tar file1 file2 file3
+ubuntu@instance-20230605-1446:~/oslab$ ls archive.tar
+archive.tar
+ubuntu@instance-20230605-1446:~/oslab$ ls
+archive.tar  date_parse.sh  file1  file2  file3
+ubuntu@instance-20230605-1446:~/oslab$ cd ..
+ubuntu@instance-20230605-1446:~$ makdir mkdir oslab1
+ubuntu@instance-20230605-1446:~$ mkdir oslab1
+ubuntu@instance-20230605-1446:~$ cd oslab1
+ubuntu@instance-20230605-1446:~/oslab1$ tar cf ~/oslab1/oslab.tar ~/oslab
+tar: Removing leading `/' from member names
+ubuntu@instance-20230605-1446:~/oslab1$ tar cf /home/ubutu/oslab1/oslab.tar /home/ubuntu/oslab
+tar: /home/ubutu/oslab1/oslab.tar: Cannot open: No such file or directory
+tar: Error is not recoverable: exiting now
+ubuntu@instance-20230605-1446:~/oslab1$ ls
+oslab.tar
+ubuntu@instance-20230605-1446:~/oslab1$ tar cf --xattrs /home/ubutu/oslab1/oslab.tar /home/ubuntu/oslab
+tar: Removing leading `/' from member names
+tar: /home/ubutu/oslab1/oslab.tar: Cannot stat: No such file or directory
+tar: Removing leading `/' from hard link targets
+tar: Exiting with failure status due to previous errors
+ubuntu@instance-20230605-1446:~/oslab1$ ls
+--xattrs  oslab.tar
+
+>>> !!!! Contents of tar archive
+ubuntu@instance-20230605-1846:~/oslab1$ tar tf oslab.tar
+home/ubuntu/oslab/
+home/ubuntu/oslab/file1
+home/ubuntu/oslab/date_parse.sh
+home/ubuntu/oslab/archive.tar
+home/ubuntu/oslab/file2
+home/ubuntu/oslab/file3
+```
+# WEEK 14
+### Extract compressed tar archive
+```
+ubuntu@instance-20230605-1446:~$ mkdir oslabbackup
+ubuntu@instance-20230605-1446:~$ cd oslabbackup/
+ubuntu@instance-20230605-1446:~/oslabbackup$ pwd
+/home/ubuntu/oslabbackup
+ubuntu@instance-20230605-1446:~/oslabbackup$ tar xpf /home/ubuntu/oslab1/oslab.tar
+ubuntu@instance-20230605-1446:~/oslabbackup$ ls
+home
+ubuntu@instance-20230605-1446:~/oslabbackup$ cd /home/ubuntu/oslab/
+ubuntu@instance-20230605-1446:~/oslab$ ls
+archive.tar  date_parse.sh  file1  file2  file3
+ubuntu@instance-20230605-1446:~/oslab$ cd ~/
+ubuntu@instance-20230605-1446:~$ ls
+os  oslab  oslab1  oslabbackup
+ubuntu@instance-20230605-1446:~$ pwd
+/home/ubuntu
+ubuntu@instance-20230605-1446:~$ mkdir oslabbackupbz2
+ubuntu@instance-20230605-1446:~$ cd oslabbackupbz2/
+ubuntu@instance-20230605-1446:~/oslabbackupbz2$ cd ~/oslab1/
+ubuntu@instance-20230605-1446:~/oslab1$ ls
+--xattrs  oslab.tar
+ubuntu@instance-20230605-1446:~/oslab1$ tar cjf oslabbackup3.tar.bz2 /home/ubuntu/oslab
+tar: Removing leading `/' from member names
+ubuntu@instance-20230605-1446:~/oslab1$ cd ~/oslabbackupbz2/
+ubuntu@instance-20230605-1446:~/oslabbackupbz2$ cd /home/ubuntu/oslab
+ubuntu@instance-20230605-1446:~/oslab$ ls
+archive.tar  date_parse.sh  file1  file2  file3
+ubuntu@instance-20230605-1446:~/oslab$ cd ..
+ubuntu@instance-20230605-1446:~$ ls
+os  oslab  oslab1  oslabbackup  oslabbackupbz2
+ubuntu@instance-20230605-1446:~$ oslabbackupbz2/
+-bash: oslabbackupbz2/: Is a directory
+ubuntu@instance-20230605-1446:~$ cd oslabbackupbz2/
+ubuntu@instance-20230605-1446:~/oslabbackupbz2$ ls
+home
+ubuntu@instance-20230605-1446:~/oslabbackupbz2$ cd home/ubuntu/oslab/
+ubuntu@instance-20230605-1446:~/oslabbackupbz2/home/ubuntu/oslab$ ls
+archive.tar  date_parse.sh  file1  file2  file3
+ubuntu@instance-20230605-1446:~/oslabbackupbz2/home/ubuntu/oslab$ cd ~/oslabbackupbz2/
+ubuntu@instance-20230605-1446:~/oslabbackupbz2$ cd ~/oslab1/
+ubuntu@instance-20230605-1446:~/oslab1$ tar tf oslabbackup3.tar.bz2
+home/ubuntu/oslab/
+home/ubuntu/oslab/file1
+home/ubuntu/oslab/date_parse.sh
+home/ubuntu/oslab/archive.tar
+home/ubuntu/oslab/file2
+home/ubuntu/oslab/file3
+ubuntu@instance-20230605-1446:~/oslab1$
+```
+### Examine file systems
+```
+ubuntu@instance-20230605-1452:~/oslab$ df
+Filesystem     1K-blocks    Used Available Use% Mounted on
+ude
+
+....... skipped
+tmpfs              98728       0     98728   0% /run/user/1001
+ubuntu@instance-20230605-1452:~/oslab$ df -h
+Filesystem      Size  Used Avail Use% Mounted on
+udev            444M     0  444M   0% /dev
+tmpfs            97M  1.1M   96M   2% /run
+/dev/sda1        45G  2.0G   43G   5% /
+tmpfs           483M     0  483M   0% /dev/shm
+tmpfs           5.0M     0  5.0M   0% /run/lock
+tmpfs           483M     0  483M   0% /sys/fs/cgroup
+/dev/loop0       64M   64M     0 100% /snap/core20/1852
+/dev/loop1.. skipped
+tmpfs            97M     0   97M   0% /run/user/1001
+
+ubuntu@instance-20230605-1452:~/oslab$ du /home
+.....
+516     /home/ubuntu/oslab
+8       /home/ubuntu/.ssh
+4       /home/ubuntu/.cache
+4       /home/ubuntu/os
+24      /home/ubuntu/oslabbackup/home/ubuntu/oslab
+28      /home/ubuntu/oslabbackup/home/ubuntu
+32      /home/ubuntu/oslabbackup/home
+36      /home/ubuntu/oslabbackup
+1200    /home/ubuntu
+
+ubuntu@instance-20230605-1452:~/oslab$ du -h /home/ubuntu
+......
+480K    /home/ubuntu/oslab/.git
+516K    /home/ubuntu/oslab
+8.0K    /home/ubuntu/.ssh
+4.0K    /home/ubuntu/.cache
+4.0K    /home/ubuntu/os
+24K     /home/ubuntu/oslabbackup/home/ubuntu/oslab
+28K     /home/ubuntu/oslabbackup/home/ubuntu
+32K     /home/ubuntu/oslabbackup/home
+36K     /home/ubuntu/oslabbackup
+1.2M    /home/ubuntu
+
+ubuntu@instance-20230605-1452:~$ blkid
+/dev/sda1: LABEL="cloudimg-rootfs" UUID="d2d17c29-d0ce-47a6-83f9-012a406381de" TYPE="ext4"
+```
