@@ -216,6 +216,7 @@ Wed May 24 13:28:55 UTC 2023
 Current Date is: 24-05-2023
 Current Time is: 13:28:55
 ```
+![](https://github.com/ULUGBEK12194914/OSlab/blob/main/terminal_screenshots/Screenshot%202023-06-06%20at%200.51.25.png)
 # WEEK 13
 ### Analyzing and Storing Logs
 ### Archiving and Copying Files
