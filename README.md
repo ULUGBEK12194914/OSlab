@@ -1,8 +1,9 @@
 # OSlab
 labwork for Operating system course
 # WEEEK2 
-    2  cd ~
-    3  sudo apt-get update
+```
+cd ~
+sudo apt-get update
     4  sudo apt-get upgrade
     5  cd ~
     6  sudo apt update && sudo apt upgrade -y
@@ -58,6 +59,6 @@ labwork for Operating system course
    56  rm week2.sh
    57  ls
    58  history > week2.sh
-   
+   ```
    # WEEK3
    
