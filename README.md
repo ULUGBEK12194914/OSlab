@@ -193,3 +193,12 @@ drwxr-xr-x 2 root      root       4096 Jun  5 16:54 ubuntu-advantage
 parallels@ubuntu-linux-22-04-desktop:~$ 
 ```
 # WEEK 7
+### Creating a new Virtual Machine (VM)
+Using oracle cloud we have created an instance(VM) where we can connect through WinCSP and work with it
+![](https://github.com/ULUGBEK12194914/OSlab/blob/main/terminal_screenshots/Screenshot%202023-06-06%20at%200.17.01.png)
+
+We have needed Putty program to generate a ssh key for our instance
+![]()
+
+Then using Wincsp we can work with instance through terminal
+![]()
